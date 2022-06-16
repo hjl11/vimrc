@@ -1,0 +1,171 @@
+" set leader key
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+" 取消vim s键原生映射
+nnoremap s <Nop>
+vnoremap s <Nop>
+"plugin
+set nerdtree
+"set easymotion
+set surround
+set argtextobj
+"语法高亮
+syntax on
+" 设置字不超过窗口
+set wrap
+"显示行号
+set number relativenumbe
+"显示光标所在位置的行号和列号
+set ruler
+set wrap                      "自动折行
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab                  "将tab替换为相应数量空格
+set smartindent
+set backspace=2
+set co=5
+" basic key mapping
+" 屏幕滚动时在光标上下方保留5行预览代码
+set so=5
+imap jk <Esc>
+nnoremap L $
+vnoremap H ^
+nnoremap H ^
+vnoremap L $
+"设置取消备份 禁止临时文件生成
+set nobackup
+set noswapfile
+" Tab operation
+nnoremap tn gt
+nnoremap tp gT
+" Insert mode shortcut
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-r> <backspace>
+inoremap <c-d> <delete>
+" idea 需要安装 ideavimextension plugin
+" 为IdeaVim插件增加自动切换为英文输入法的功能,
+set keep-english-in-normal
+" run and debug
+"nnoremap ,d :action debug<cr>
+"nnoremap ,r :action run<cr>
+"nnoremap ,c :action CompileDirty<CR>
+"nnoremap ,b :action ToggleLineBreakpoint<CR>
+"nnoremap ,v :action ViewBreakpoints<CR>
+"nnoremap ,s :action Stop<CR>
+
+" intellij built in key map
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""查询""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>fa :action GotoAction<CR>
+
+nnoremap <leader>fb :action Bookmarks<CR>
+nnoremap <leader>fc :action GotoClass<CR>
+nnoremap <leader>fr :action RecentFiles<CR>
+" 查找文件
+nnoremap <leader>ff mm`m:action GotoFile<CR>
+"nnoremap <leader>e :action SearchEverywhere<CR>
+"nnoremap <leader>f :action FindInPath<CR>
+"nnoremap <leader>gc :action Git.CompareWithBranch<CR>
+"nnoremap <leader>ga :action Annotate<CR>
+"nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+"nnoremap <leader>nj :action NewClass<CR>
+"nnoremap <leader>nt :action Kotlin.NewFile<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"插入分割线50i=<Esc>    ========================================================
+" code actions
+nnoremap R :action RenameElement<CR>
+nnoremap == :action ReformatCode<CR>
+vnoremap = :action ReformatCode<CR>
+nnoremap -- :action OptimizeImports<CR>
+nnoremap cc :action CommentByLineComment<CR>
+vnoremap cc :action CommentByLineComment<CR>
+nnoremap sw :action SurroundWith<CR>
+vnoremap sw :action SurroundWith<CR>
+nnoremap si :action ShowIntentionActions<CR>
+"相当于鼠标右键
+nnoremap sm :action ShowPopupMenu<CR>
+" 弹出参数信息(打类的时候有奇效)
+nnoremap sp :action ParameterInfo<CR>
+nnoremap <leader>c :action EditorCompleteStatement<CR>
+
+
+"设置匹配模式 类似当输入一个左括号时会匹配相应的那个右括号
+set showmatch
+set clipboard^=unnamed,unnamedplus
+"set laststatus=2   "命令行为两行
+"set fenc=utf-8     "文件编码
+"set mouse=a        "启用鼠标
+"set ignorecase     "忽略大小写
+set cursorline     "突出显示当前行
+"set cursorcolumn   "突出显示当前列
+set fdm=marker
+"plugin
+" open NERDTree
+nnoremap <leader>t :NERDTree<CR>
+" close NERDTree
+nnoremap Q :NERDTreeClose<CR>
+" vim窗口操作" vim窗口操作
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap so <C-W>o
+nnoremap sc <C-W>c
+nnoremap sv :vsplit<CR>
+nnoremap sg :split<CR>
+
+
+
+"关闭到只剩当前tab栏
+nnoremap to :action CloseAllEditorsButActive<CR>
+"隐藏所有窗口
+nnoremap sh :action HideAllWindows<CR>
+" 改变视图
+nnoremap <leader>cv :action ChangeView<CR>
+
+
+
+
+" 像vscode一样行移动
+vnoremap K :action MoveLineUp<CR>
+vnoremap J :action MoveLineDown<CR>
+" 多行缩进在visual mode
+vnoremap > >gv
+vnoremap < <gv
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""文件和跳转"""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 重命名文件
+nnoremap <leader>rn :action RenameFile<CR>
+" 打开General菜单
+nnoremap go :action Generate<CR>
+"跳转到实现类
+nnoremap gi mm`m:action GotoImplementation<CR>
+"跳转到定义处
+nnoremap gd :action GotoDeclaration<CR>
+" 跳转SuperMethod
+nnoremap gs mm`m:action GotoSuperMethod<CR>
+" 目前还不熟悉 (后面搞懂回来补充)
+nnoremap gf mm`m:action FileStructurePopup<CR>
+" navigation
+nnoremap gc :action JumpToLastChange<CR>
+nnoremap gb :action Back<CR>
+nnoremap gu :action FindUsages<CR>
+
+
+
